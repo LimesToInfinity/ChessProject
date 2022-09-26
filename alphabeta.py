@@ -87,7 +87,7 @@ def minimal(game, depth, alpha=-2, beta=2):
     
     #Check for checkmate or stalemate
     if moves == []:
-        beta = checkmate_stalemate(gambe)
+        beta = checkmate_stalemate(game)
         beta = beta
         return beta, best_move
     
