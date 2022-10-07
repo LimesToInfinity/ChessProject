@@ -7,7 +7,7 @@ A neuralnetwork that plays chess.
 This file contains the alpha-beta pruning algorithm, which is used to search within the game tree.
 One can use the alpha-beta pruning algorithm by calling the function alpha_beta() from within this module.
 The function alpha_beta() is kept general to be reused by different games, not just chess.
-alpha_beta(game, turn, depth=1) recieves 3 arguments:
+alpha_beta(game, turn, depth=1) receives 3 arguments:
 1. game: The current state of the board 
 2. turn: Who's turn is it?
 3. depth: How deep should the algorithm search?
@@ -45,13 +45,13 @@ This is important for the neural network since the evaluation of a position depe
 ### neuralnetwork.py
 This file contains the following functions:
 #### NeuralNet()
-This function recieves 1 argument, the depth of the neural network, which can be an integer bigger or equal to 2.  
+This function receives 1 argument, the depth of the neural network, which can be an integer bigger or equal to 2.  
 It then creates a PyTorch Sequential Model with the following structure:  
 Linear(386,500) -> Tanh activation -> [(Linear(500,500) -> Tanh)*depth-2] -> Linear(500,1) -> Tanh activation.  
 The function than returns the Sequential Model, the optimizer which is set to SGD=Stochastic Gradient Descent and the loss_fn which is set to MSELoss=Mean Squared Error loss
 
 #### training_loop()
-training_loop(n_epochs, model, loss_fn, optimizer) recieves the number of training epochs=n_epochs, the Sequential Model=model, the loss function=loss_fn and the optimizer=optimizer.  
+training_loop(n_epochs, model, loss_fn, optimizer) receives the number of training epochs=n_epochs, the Sequential Model=model, the loss function=loss_fn and the optimizer=optimizer.  
 The train and label tensors are preloaded inside of neuralnetowork.py and are called train.pt and label.pt, which is important if you create your own ones. 
 With these parameters it trains the Sequential model.
 
@@ -66,4 +66,4 @@ It orders in the following hirachy: 1. checks, 2. captures, 3. castling, 4. anyt
 ### ratingmodel.py
 This file contains the function
 #### rating_model()
-which recieves a model (neural net) and a game position (chess.Board - object) and outputs an evaluation of the position in the interval [-1,1].
+which receives a model (neural net) and a game position (chess.Board - object) and outputs an evaluation of the position in the interval [-1,1].
